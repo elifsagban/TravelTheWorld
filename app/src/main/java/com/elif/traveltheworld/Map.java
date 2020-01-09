@@ -98,8 +98,11 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
 
             return  countries_and_names;
-        }
 
+
+
+
+        }
 
 
         @Override
@@ -108,6 +111,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             try {
 
                 final Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+
 
 
                 mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -127,7 +131,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                                 public void onClick(View v) {
                                     if (result.keySet().contains(addresses.get(0).getCountryName())) {
 
-                                       final GeoJsonLayer layer = result.get(addresses.get(0).getCountryName());
+                                        final GeoJsonLayer layer = result.get(addresses.get(0).getCountryName());
                                         colorMap(layer);
                                         ClickMap(layer);
 
@@ -187,20 +191,29 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             startActivity(intent);
         }
         if(id==R.id.item2){
-            Intent intent= new Intent(Map.this, Total.class);
+            Intent intent= new Intent(Map.this, Map.class);
             startActivity(intent);
         }
         if(id==R.id.item3){
-            Intent intent= new Intent(Map.this, Where2Go.class);
+            Intent intent= new Intent(Map.this, Total.class);
             startActivity(intent);
         }
         if(id==R.id.item4){
-            Intent intent= new Intent(Map.this, Profile.class);
+            Intent intent= new Intent(Map.this, Where2Go.class);
             startActivity(intent);
         }
         if(id==R.id.item5){
             Intent intent= new Intent(Map.this, Profile.class);
             startActivity(intent);
+        }
+
+        if(id==R.id.item6) {
+
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
+
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -243,6 +256,5 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 }
-
 
 

@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Map"
-                android:textSize="26sp"
+                android:textSize="18sp"
 
                 />
         </LinearLayout>
@@ -98,8 +98,8 @@
                 android:layout_width="412dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="26sp"
-                android:text="Where to go?" />
+                android:text="Where to go?"
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -117,31 +117,15 @@
             android:layout_height="match_parent"
             android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total country count is:"
-                android:textColor="#ffffff"
-                android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/textView"
-                android:text=" "
-                android:textColor="#ffffff"
-                android:textSize="24sp" />
 
 
             <Button
                 android:id="@+id/total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView"
-                android:textSize="26sp"
-                android:text="total" />
+                android:text="total"
+                android:textSize="18sp" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -166,8 +150,8 @@
                 android:layout_width="412dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="26sp"
-                android:text="Profile" />
+                android:text="Profile"
+                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

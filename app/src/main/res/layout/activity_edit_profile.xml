@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".EditProfile">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardProfile"
         android:layout_width="match_parent"
@@ -13,29 +13,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
+            android:background="@drawable/bg1"
             >
 
             <ImageView
-                android:id="@+id/imgProfile"
+                android:id="@+id/imgEditProfile"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:padding="2dp"
-                android:layout_centerVertical="true"/>
-
+                android:layout_centerVertical="true"
+                android:src="@drawable/profile"
+                android:onClick="handleImageClick"
+                />
 
             <EditText
-                android:id="@+id/uname"
+                android:id="@+id/editUname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/imgProfile"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:text="Username"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
+                android:layout_toEndOf="@+id/imgEditProfile"
+                android:ems="10"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:textColor="@color/cardview_light_background"
+                android:textColorHint="@color/cardview_light_background"
+                android:textSize="24sp" />
 
 
         </RelativeLayout>
@@ -49,12 +52,13 @@
         android:layout_marginTop="7dp">
 
         <EditText
+            android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:hint="Full Name"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="24sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
@@ -66,12 +70,13 @@
         android:layout_marginTop="7dp">
 
         <EditText
+            android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lastname"
+            android:hint="Password"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="24sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
@@ -83,12 +88,13 @@
         android:layout_marginTop="7dp">
 
         <EditText
+            android:id="@+id/editMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Age"
+            android:hint="E-mail"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="24sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
@@ -100,12 +106,13 @@
         android:layout_marginTop="7dp">
 
         <EditText
+            android:id="@+id/editPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="e-mail address"
+            android:hint="Phone Number"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="24sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
@@ -120,7 +127,10 @@
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg1"
+            android:clickable="true"
             android:text="save changes"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
 

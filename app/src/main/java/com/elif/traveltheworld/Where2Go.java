@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -97,16 +99,30 @@ public class Where2Go extends AppCompatActivity implements View.OnClickListener 
             startActivity(intent);
         }
         if(id==R.id.item2){
-            Intent intent= new Intent(Where2Go.this, Total.class);
+            Intent intent= new Intent(Where2Go.this, Map.class);
             startActivity(intent);
         }
         if(id==R.id.item3){
-            Intent intent= new Intent(Where2Go.this, Where2Go.class);
+            Intent intent= new Intent(Where2Go.this, Total.class);
             startActivity(intent);
         }
         if(id==R.id.item4){
+            Intent intent= new Intent(Where2Go.this, Where2Go.class);
+            startActivity(intent);
+        }
+
+        if(id==R.id.item5){
             Intent intent= new Intent(Where2Go.this, Profile.class);
             startActivity(intent);
+        }
+
+        if(id==R.id.item6) {
+
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
+
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -165,27 +181,27 @@ public class Where2Go extends AppCompatActivity implements View.OnClickListener 
                 break;
 
             case R.id.place_13:
-                goToCountry(btn13.getText().toString());
+                openWantPage(btn13.getText().toString());
                 break;
 
             case R.id.place_14:
-                goToCountry(btn14.getText().toString());
+                openWantPage(btn14.getText().toString());
                 break;
 
             case R.id.place_15:
-                goToCountry(btn15.getText().toString());
+                openWantPage(btn15.getText().toString());
                 break;
 
             case R.id.place_16:
-                goToCountry(btn16.getText().toString());
+                openWantPage(btn16.getText().toString());
                 break;
 
             case R.id.place_17:
-                    goToCountry(btn17.getText().toString());
+                openWantPage(btn17.getText().toString());
                 break;
 
             case R.id.place_18:
-                goToCountry(btn18.getText().toString());
+                openWantPage(btn18.getText().toString());
                 break;
 
 
@@ -196,13 +212,6 @@ public class Where2Go extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-    public void goToCountry(String country_name) {
-
-        String geoUri = "https://www.google.com/maps/place/" + country_name ;
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
-        this.startActivity(intent);
-    }
 
 
     public void openWantPage(String country){

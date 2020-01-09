@@ -1,19 +1,12 @@
 package com.elif.traveltheworld;
-
-
-import android.util.ArrayMap;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 
 
 public class Country extends  Map {
@@ -21,12 +14,6 @@ public class Country extends  Map {
     public static   FirebaseAuth fAuth;
     public static FirebaseFirestore fStore;
     public static  String userID;
-
-
-    public static ArrayMap<String, Object> visitedPlaces = new ArrayMap<String, Object>();
-    public static ArrayList<String> countries = new ArrayList<>() ;
-    static ArrayList<String> data;
-
 
 
 
@@ -106,15 +93,18 @@ public class Country extends  Map {
     }
 
 
+
     public static void putVisited(String countryName) {
 
-        countries.add(countryName);
-       fAuth = FirebaseAuth.getInstance();
-         fStore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
         userID = fAuth.getCurrentUser().getUid();
-        Register.user.put("countries", countries);
 
         DocumentReference documentReference = fStore.collection("users").document(userID);
+
+        documentReference.update("countries", FieldValue.arrayUnion(countryName));
+
         documentReference.update(Register.user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -122,36 +112,13 @@ public class Country extends  Map {
                 Log.d("total","complete it" );
 
 
+
             }
         });
 
+
+
     }
 
-//    public  static String returnVisited() {
-//
-//        fAuth = FirebaseAuth.getInstance();
-//        fStore = FirebaseFirestore.getInstance();
-//        userID = fAuth.getCurrentUser().getUid();
-//        final DocumentReference documentReference = fStore.collection("users").document(userID);
-//        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot documentSnapshot = task.getResult();
-//                    if (documentSnapshot.exists()) {
-//                        data = (ArrayList<String>) documentSnapshot.getData();
-//                    }
-//
-//                }
-//            }
-//        });
-//
-//        return data.get(0) + "apply" ;
-//    }
-//
-
-    public  static ArrayList<String> returnCountries() {
-
-        return  countries;
-    }
 }
+

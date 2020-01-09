@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/wantbutton"
-        android:layout_width="202dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:text="I want!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/wentbutton"
@@ -30,8 +30,8 @@
 
     <Button
         android:id="@+id/wentbutton"
-        android:layout_width="198dp"
-        android:layout_height="53dp"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
         android:text="I went!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
