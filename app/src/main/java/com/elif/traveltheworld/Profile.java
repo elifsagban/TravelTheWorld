@@ -2,7 +2,6 @@ package com.elif.traveltheworld;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -32,13 +30,11 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         fullName = findViewById(R.id.profileNameUser);
         username = findViewById(R.id.profileUsername);
         email = findViewById(R.id.profileEmailUser);
-        password = findViewById(R.id.profileEmailUser);
+        password = findViewById(R.id.profilePasswordU);
         phone = findViewById(R.id.profilePhoneUser);
-
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
@@ -61,7 +57,7 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        edit = (Button) findViewById(R.id.edit);
+        edit = findViewById(R.id.edit);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,17 +88,33 @@ public class Profile extends AppCompatActivity {
             startActivity(intent);
         }
         if(id==R.id.item2){
-            Intent intent= new Intent(Profile.this, Total.class);
+            Intent intent= new Intent(Profile.this, Map.class);
             startActivity(intent);
         }
         if(id==R.id.item3){
-            Intent intent= new Intent(Profile.this, Where2Go.class);
+            Intent intent= new Intent(Profile.this, Total.class);
             startActivity(intent);
         }
         if(id==R.id.item4){
+            Intent intent= new Intent(Profile.this, Where2Go.class);
+            startActivity(intent);
+        }
+
+        if(id==R.id.item5){
             Intent intent= new Intent(Profile.this, Profile.class);
             startActivity(intent);
         }
+
+        if(id==R.id.item6) {
+
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
+
+
+        }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -110,16 +110,30 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if(id==R.id.item2){
-            Intent intent= new Intent(MainActivity.this, Total.class);
+            Intent intent= new Intent(MainActivity.this, Map.class);
             startActivity(intent);
         }
         if(id==R.id.item3){
-            Intent intent= new Intent(MainActivity.this, Where2Go.class);
+            Intent intent= new Intent(MainActivity.this, Total.class);
             startActivity(intent);
         }
         if(id==R.id.item4){
+            Intent intent= new Intent(MainActivity.this, Where2Go.class);
+            startActivity(intent);
+        }
+
+        if(id==R.id.item5){
             Intent intent= new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
+        }
+
+        if(id==R.id.item6) {
+
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
+
+
         }
         return super.onOptionsItemSelected(item);
     }
